@@ -7,14 +7,14 @@ import classNames from 'classnames';
 
 export default function ProfileCard({ userData }) {
   return (
-    <div className="mb-4 bg-white rounded-lg shadow p-6 xl:p-8">
+    <div className="bg-white rounded-lg shadow p-6 xl:p-8">
       <div className="sm:flex xl:block sm:space-x-4 xl:space-x-0">
         <Image
           width={100}
           height={100}
           className="mb-2 w-20 h-20 rounded-lg"
           src={userData.picture.large}
-          alt="Jese portrait"
+          alt={userData.name.first}
         />
         <div>
           <h2

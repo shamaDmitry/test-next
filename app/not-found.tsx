@@ -11,7 +11,7 @@ export default function NotFound() {
           Go back{' '}
           <Link
             href="/"
-            className="font-bold capitalize before:transition relative before:w-full before:left-0 before:bottom-0 before:absolute hover:before:w-full before:h-[2px] py-1 before:bg-red-500"
+            className="font-bold capitalize before:transition-all relative before:w-0 before:left-0 before:bottom-0 before:absolute hover:before:w-full before:h-[2px] py-1 before:bg-red-500"
           >
             home
           </Link>

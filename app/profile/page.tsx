@@ -1,4 +1,5 @@
 import Headline from '@/components/Atoms/Headline';
+import ClientProfileBlock from '@/components/ProfilePage/ClientProfileBlock';
 import ProfileCard from '@/components/ProfilePage/ProfileCard';
 import userService from '@/services/userService';
 
@@ -10,16 +11,30 @@ const getUserData = async () => {
 
 export default async function Page() {
   const userData = await getUserData();
+  const anotherUserData = await getUserData();
 
   return (
     <section className="container">
-      <Headline className="">Profile</Headline>
+      <Headline>Profile</Headline>
 
-      <div className="grid grid-cols-2">
-        {userData && <ProfileCard userData={userData} />}
-      </div>
+      <p className="mb-4 font-bold text-lg">
+        Server components - api call cached
+      </p>
 
       {!userData && <p className="font-medium">nothing is here</p>}
+
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
+        {userData && (
+          <>
+            <ProfileCard userData={userData} />
+            <ProfileCard userData={anotherUserData} />
+          </>
+        )}
+      </div>
+
+      <p className="mb-4 font-bold text-lg">Client component with swr</p>
+
+      <ClientProfileBlock />
     </section>
   );
 }

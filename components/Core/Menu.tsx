@@ -27,7 +27,7 @@ export default function AppMenu({ menuData }) {
         leaveFrom="transform opacity-100 scale-100"
         leaveTo="transform opacity-0 scale-95"
       >
-        <Menu.Items className="absolute border right-0 flex flex-col font-medium lg:flex-row lg:space-x-8 lg:mt-0 w-48">
+        <Menu.Items className="absolute z-50s bg-white border right-0 flex flex-col font-medium lg:flex-row lg:space-x-8 lg:mt-0 w-48">
           <div className="px-1 py-1">
             <ul className="flex flex-col font-medium lg:flex-row lg:space-x-8 lg:mt-0 divide-y-2">
               {menuData.map(menuItem => {
