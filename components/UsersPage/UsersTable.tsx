@@ -1,9 +1,16 @@
+import { IUser } from '@/types/IUser';
 import classNames from 'classnames';
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
 
-export default function UsersTable({ data }) {
+interface IUsersTableProps {
+  data: IUser[];
+}
+
+export default function UsersTable({ data }: IUsersTableProps) {
+  if (!data.length) return <p>Nothing is here</p>;
+
   return (
     <table className="min-w-full divide-y divide-gray-200 table-fixed dark:divide-gray-600">
       <thead className="bg-gray-100 dark:bg-gray-700">

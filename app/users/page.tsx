@@ -1,5 +1,4 @@
 import Headline from '@/components/Atoms/Headline';
-import LoadingDots from '@/components/Atoms/LoadingDots';
 import UsersTable from '@/components/UsersPage/UsersTable';
 import userService from '@/services/userService';
 
@@ -13,7 +12,7 @@ export default async function Page() {
   return (
     <section className="container">
       <Headline>Users</Headline>
-      
+
       <div className="overflow-x-auto">
         <div className="inline-block min-w-full align-middle">
           <div className="overflow-hidden shadow">

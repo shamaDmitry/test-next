@@ -6,8 +6,9 @@ import React from 'react';
 import AppMenu from './Menu';
 import { useActivePath } from '@/hooks/useActivePath';
 import classNames from 'classnames';
+import { IMenu } from '@/types/IMenu';
 
-const menu = [
+const menu: IMenu[] = [
   { id: uuidv4(), title: 'Home', href: '/' },
   { id: uuidv4(), title: 'Users', href: '/users' },
 ];

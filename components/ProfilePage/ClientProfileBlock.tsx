@@ -14,8 +14,8 @@ export default function ClientProfileBlock() {
 
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
-      <ProfileCard userData={data.results[0]} />
-      <ProfileCard userData={data.results[0]} />
+      <ProfileCard profileData={data.results[0]} />
+      <ProfileCard profileData={data.results[0]} />
     </div>
   );
 }

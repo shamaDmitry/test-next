@@ -1,6 +1,8 @@
 import type { Config } from "tailwindcss";
 const plugin = require('tailwindcss/plugin');
 
+import type { PluginAPI } from "tailwindcss/types/config";
+
 const config: Config = {
   darkMode: 'class',
   content: [
@@ -11,7 +13,7 @@ const config: Config = {
   theme: {
     container: {
       center: true,
-      padding: '16px'
+      padding: '16px',
     },
     extend: {
       keyframes: {
@@ -28,10 +30,10 @@ const config: Config = {
     },
   },
   plugins: [
-    plugin(({ matchUtilities, theme }) => {
+    plugin(function ({ matchUtilities, theme }: { matchUtilities: PluginAPI["matchUtilities"], theme: PluginAPI["theme"] }) {
       matchUtilities(
         {
-          'animation-delay': value => {
+          'animation-delay': (value: string) => {
             return {
               'animation-delay': value,
             };

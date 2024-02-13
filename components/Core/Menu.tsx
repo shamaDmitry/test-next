@@ -4,8 +4,13 @@ import Hamburger from '../Icons/Hamburger';
 import Link from 'next/link';
 import classNames from 'classnames';
 import { useActivePath } from '@/hooks/useActivePath';
+import { IMenu } from '@/types/IMenu';
 
-export default function AppMenu({ menuData }) {
+interface IMenuProps {
+  menuData: IMenu[];
+}
+
+export default function AppMenu({ menuData }: IMenuProps) {
   const checkActivePath = useActivePath();
 
   return (
