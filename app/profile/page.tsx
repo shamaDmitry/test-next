@@ -2,14 +2,19 @@ import Headline from '@/components/Atoms/Headline';
 import ClientProfileBlock from '@/components/ProfilePage/ClientProfileBlock';
 import ProfileCard from '@/components/ProfilePage/ProfileCard';
 import userService from '@/services/userService';
+import { notFound } from 'next/navigation';
 
 const getUserData = async () => {
   return userService.getInfo();
 };
 
 export default async function Page() {
-  const [userData] = await getUserData();
-  const [anotherUserData] = await getUserData();
+  const userData = await getUserData();
+  const anotherUserData = await getUserData();
+
+  if (!userData || !anotherUserData) {
+    return notFound();
+  }
 
   return (
     <section className="container">

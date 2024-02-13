@@ -1,4 +1,10 @@
 ## Getting Started
+0. Create .env file, add 
+
+```bash
+NEXT_PUBLIC_USER_API_URL='https://randomuser.me/api/'
+NEXT_PUBLIC_API_URL='https://jsonplaceholder.typicode.com/' 
+```
 
 1. install dependencies:
 

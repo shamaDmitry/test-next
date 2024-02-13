@@ -1,12 +1,12 @@
-const Headline = (props: { className?: string; children: React.ReactNode }) => {
+interface HeadlineProps {
+  className?: string;
+  children: React.ReactNode;
+}
+
+const Headline = ({ className, children }: HeadlineProps) => {
   return (
-    <h1
-      className={[
-        'text-3xl font-bold mb-4',
-        props.className ? props.className : '',
-      ].join(' ')}
-    >
-      {props.children}
+    <h1 className={['text-3xl font-bold mb-4', className || ''].join(' ')}>
+      {children}
     </h1>
   );
 };

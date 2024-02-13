@@ -6,9 +6,9 @@ const getUserData = (id: string) => userService.getUser(id);
 
 export default async function Page({ params }: { params: { id: string } }) {
   const data = await getUserData(params.id);
-  
-  if (!data) return notFound;
-  
+
+  if (!data) return notFound();
+
   return (
     <div className="container">
       <Headline>User {data.name}</Headline>

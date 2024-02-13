@@ -11,6 +11,7 @@ import { IMenu } from '@/types/IMenu';
 const menu: IMenu[] = [
   { id: uuidv4(), title: 'Home', href: '/' },
   { id: uuidv4(), title: 'Users', href: '/users' },
+  { id: uuidv4(), title: 'Profile', href: '/profile' },
 ];
 
 export default function Header() {
@@ -50,16 +51,6 @@ export default function Header() {
           </div>
 
           <div className="ml-auto items-center justify-center flex space-x-4">
-            <Link
-              href="/profile"
-              className={classNames({
-                'block py-2 pr-4 pl-3 text-gray-700': true,
-                'underline font-bold': checkActivePath('/profile'),
-              })}
-            >
-              Profile
-            </Link>
-
             <AppMenu menuData={menu} />
           </div>
         </div>

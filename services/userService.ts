@@ -1,7 +1,6 @@
 import { API_URL, USER_API_URL } from "@/helpers/consts";
 import { IProfile } from "@/types/IProfile";
-import { IUser } from "@/types/IUser";
-import { notFound } from 'next/navigation';
+import { IUser } from "@/types/User";
 
 const userEndpoints = {
   info: USER_API_URL,
@@ -10,35 +9,29 @@ const userEndpoints = {
 };
 
 const userService = {
-  getInfo: async (): Promise<IProfile[]> => {
+  getInfo: async (): Promise<IProfile | undefined> => {
     const response = await fetch(userEndpoints.info);
 
-    if (!response.ok) {
-      notFound();
-    }
+    if (!response.ok) return undefined
 
     const json = await response.json();
 
-    return json.results;
+    return json.results[0];
   },
 
   getAllUsers: async (): Promise<IUser[]> => {
-    try {
-      const response = await fetch(userEndpoints.getAllUsers);
-      const json = await response.json();
+    const response = await fetch(userEndpoints.getAllUsers);
+    const json = await response.json();
 
-      return json;
-    } catch (err) {
-      return []
-    }
+    if (!response.ok) return []
+
+    return json;
   },
 
   getUser: async (id: string): Promise<IUser | undefined> => {
     const response = await fetch(userEndpoints.getUser(id));
 
-    if (!response.ok) {
-      notFound();
-    }
+    if (!response.ok) return undefined
 
     const user = await response.json() as IUser;
 
